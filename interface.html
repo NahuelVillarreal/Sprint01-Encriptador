@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/estilos.css">
+    
+</head>
+<body>
+    <main>
+        <img class="logo" src="static/img/logo-alura.png">
+        <!--aca van los botones y luego el cuadro de input-->
+        <textarea class="texto" placeholder="Ingrese el texto aqui" id="input"></textarea>
+        <div class="mensaje-botones">
+            <div class="mensaje-guia">
+                <img class="exclamation" src="static/img/exclamation.png">
+                <span class="mensaje">Solo letras minúsculas y sin acentos</span>
+            </div>
+
+            <div class="botones">
+                <button class="button encriptar" type="button" id="encriptar">Encriptar</button>
+                <button class="button desencriptar" type="button" id="desencriptar">Desencriptar</button>
+            </div>
+
+        </div>
+    </main>
+    <section class="panel">
+        <img class="imagen-muneco" id="imagen-muneco" src="static/img/muneco.png">
+        <div id="mensajes-panel" class="mensajes-panel">
+            <div class="no-encontrado">Ning&uacute;n mensaje fue encontrado</div>
+
+            <div class="instrucciones">Ingresa el texto que desees encriptar o desencriptar.</div>
+        </div>
+    </section>
+    <script src="encriptador.js"></script>
+</body>
+</html>
