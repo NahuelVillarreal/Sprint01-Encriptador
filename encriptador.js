@@ -21,17 +21,26 @@ const ufat = /ufat/gi;
 gaitober" => "gato"
 */
 var first = true;
+let imagenMuneco = document.getElementById("imagen-muneco");
+let mensajesPanel = document.getElementById("mensajes-panel");
+let padre = document.querySelector(".panel");
 
 function agregaryquitar() {
     document.getElementById("imagen-muneco").remove();
     document.getElementById("mensajes-panel").remove();
-    const padre = document.querySelector(".panel");
     const texto = document.createElement("textarea");
     texto.id = "output";
     texto.className = "output";
     texto.readOnly = true;
     padre.style.cssText = "justify-content: flex-start;";
     padre.insertAdjacentElement("afterbegin", texto);
+}
+
+function recuperar() {
+    document.getElementById("output").remove();
+    padre.insertAdjacentElement("afterbegin", mensajesPanel);
+    padre.insertAdjacentElement("afterbegin", imagenMuneco);
+    document.getElementById("input").focus();
 }
 
 function agregarboton() {
@@ -47,8 +56,8 @@ function agregarboton() {
 }
 
 function encriptar() {
-    var input = document.getElementById("input").value;
-    var encript = input.replace(letraE, "enter");
+    var input = document.getElementById("input");
+    var encript = input.value.replace(letraE, "enter");
     encript = encript.replace(letraI, "imes");
     encript = encript.replace(letraA, "ai");
     encript = encript.replace(letraO, "ober");
@@ -65,14 +74,14 @@ function encriptar() {
         output.style.cssText = 'height:auto; padding:0';
         output.style.cssText = 'height:' + output.scrollHeight + 'px';
         first = false;
+        input.value = "";
+        document.getElementById("input").focus();
     }
-
-  
 }
 
 function desencriptar() {
-    var input = document.getElementById("input").value;
-    var desencript = input.replace(enter, "e");
+    var input = document.getElementById("input");
+    var desencript = input.value.replace(enter, "e");
     desencript = desencript.replace(imes, "i");
     desencript = desencript.replace(ai, "a");
     desencript = desencript.replace(ober, "o");
@@ -89,6 +98,8 @@ function desencriptar() {
         output.style.cssText = 'height:auto; padding:0';
         output.style.cssText = 'height:' + output.scrollHeight + 'px';
         first = false;
+        input.value = ""
+        document.getElementById("input").focus();
     }
 
 }
@@ -97,8 +108,23 @@ function copiarPortapapeles() {
     var copyText = document.getElementById("output");
     copyText.select();
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    navigator.clipboard.writeText(copyText.value);
-    alert("Mensaje copiado.");
+    /*if (navigator.clipboard){
+        navigator.clipboard.writeText(copyText.value);
+    }else {
+        alert("no se puede")
+    }*/
+    try {
+        try {
+            navigator.clipboard.writeText(copyText.value);
+        }catch (error) { 
+            document.execCommand("copy"); /* arreglo con execCommand para móviles */
+        }
+        alert("Mensaje copiado al portapapeles");
+        copyText.value = ""
+        recuperar();
+    }catch (error) {
+        alert("Algo ha ocurrido mal");
+    }
     }
 
 var botonEncriptar = document.getElementById("encriptar");

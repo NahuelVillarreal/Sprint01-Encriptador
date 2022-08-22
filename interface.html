@@ -12,13 +12,18 @@
     
 </head>
 <body>
+    <header class="enlaces-redes">
+        <p>Dev. </p>
+        <a href="https://www.linkedin.com/in/nahuel-villarreal77/" target="_blank"><img src="static/img/linkedin.png" alt="logo linkedin"></a>
+        <a href="https://github.com/NahuelVillarreal" target="_blank"><img src="static/img/github.png" alt="logo github"></a>
+    </header>
     <main>
-        <img class="logo" src="static/img/logo-alura.png">
+        <img class="logo" src="static/img/logo-alura.png" alt="logo alura">
         <!--aca van los botones y luego el cuadro de input-->
         <textarea class="texto" placeholder="Ingrese el texto aqui" id="input"></textarea>
         <div class="mensaje-botones">
             <div class="mensaje-guia">
-                <img class="exclamation" src="static/img/exclamation.png">
+                <img class="exclamation" src="static/img/exclamation.png" alt="signo exclamacion">
                 <span class="mensaje">Solo letras minúsculas y sin acentos</span>
             </div>
 
@@ -28,15 +33,14 @@
             </div>
 
         </div>
+        <section class="panel">
+            <img class="imagen-muneco" id="imagen-muneco" src="static/img/muneco.png" alt="muñeco decorativo">
+            <div id="mensajes-panel" class="mensajes-panel">
+                <div class="no-encontrado">Ning&uacute;n mensaje fue encontrado</div>
+                <div class="instrucciones">Ingresa el texto que desees encriptar o desencriptar.</div>
+            </div>
+        </section>
     </main>
-    <section class="panel">
-        <img class="imagen-muneco" id="imagen-muneco" src="static/img/muneco.png">
-        <div id="mensajes-panel" class="mensajes-panel">
-            <div class="no-encontrado">Ning&uacute;n mensaje fue encontrado</div>
-
-            <div class="instrucciones">Ingresa el texto que desees encriptar o desencriptar.</div>
-        </div>
-    </section>
     <script src="encriptador.js"></script>
 </body>
 </html>
